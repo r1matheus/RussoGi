@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Namoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo, Matheus e [Nome da Namorada]</h1>
+        <div class="profile-icons">
+            <img src="profile-m.png" alt="Perfil Matheus" class="profile-pic">
+            <img src="profile-f.png" alt="Perfil Namorada" class="profile-pic">
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#metas">Metas</a></li>
+            <li><a href="#diario">Diário</a></li>
+            <li><a href="#calendario">Calendário</a></li>
+            <li><a href="#config">Configurações</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Seção Início -->
+        <section id="home" class="active">
+            <h2>Início</h2>
+            <div class="card">
+                <h3>Metas Conjuntas</h3>
+                <ul id="metas-list">
+                    <!-- Metas serão adicionadas aqui -->
+                </ul>
+                <button onclick="showAddMetaModal()">+ Nova Meta</button>
+            </div>
+
+            <div class="card">
+                <h3>Próximos Dates</h3>
+                <ul id="dates-list">
+                    <!-- Dates serão adicionados aqui -->
+                </ul>
+                <button onclick="showAddDateModal()">+ Novo Date</button>
+            </div>
+
+            <div class="card">
+                <h3>Conquistas Recentes</h3>
+                <ul id="conquistas-list">
+                    <!-- Conquistas serão adicionadas aqui -->
+                </ul>
+                <button onclick="showAddConquistaModal()">+ Nova Conquista</button>
+            </div>
+        </section>
+
+        <!-- Seção Metas -->
+        <section id="metas">
+            <h2>Metas</h2>
+            <div class="card">
+                <h3>Minhas Metas</h3>
+                <ul id="full-metas-list">
+                    <!-- Lista completa de metas -->
+                </ul>
+                <button onclick="showAddMetaModal()">+ Nova Meta</button>
+            </div>
+        </section>
+
+        <!-- Seção Diário -->
+        <section id="diario">
+            <h2>Diário</h2>
+            <div class="card">
+                <h3>Entradas do Diário</h3>
+                <ul id="diario-list">
+                    <!-- Entradas do diário serão adicionadas aqui -->
+                </ul>
+                <button onclick="showAddDiarioModal()">+ Nova Entrada</button>
+            </div>
+        </section>
+
+        <!-- Seção Calendário -->
+        <section id="calendario">
+            <h2>Calendário</h2>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button onclick="prevMonth()">&#8249;</button>
+                    <span id="month-year"></span>
+                    <button onclick="nextMonth()">&#8250;</button>
+                </div>
+                <table id="calendar-table">
+                    <!-- Calendário será gerado aqui -->
+                </table>
+            </div>
+            <button onclick="showAddDateModal()">+ Novo Evento</button>
+        </section>
+
+        <!-- Seção Configurações -->
+        <section id="config">
+            <h2>Configurações</h2>
+            <div class="card">
+                <h3>Preferências</h3>
+                <p>Ajuste as configurações do aplicativo.</p>
+                <!-- Configurações adicionais -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modais para adicionar dados -->
+    <div id="addMetaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addMetaModal')">&times;</span>
+            <h3>Adicionar Nova Meta</h3>
+            <input type="text" id="metaName" placeholder="Nome da Meta">
+            <button onclick="addMeta()">Adicionar</button>
+        </div>
+    </div>
+
+    <div id="addDateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addDateModal')">&times;</span>
+            <h3>Adicionar Novo Date</h3>
+            <input type="text" id="dateTitle" placeholder="Título do Evento">
+            <input type="text" id="dateLocation" placeholder="Local do Evento">
+            <input type="date" id="dateDate">
+            <button onclick="addDate()">Adicionar</button>
+        </div>
+    </div>
+
+    <div id="addConquistaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addConquistaModal')">&times;</span>
+            <h3>Adicionar Nova Conquista</h3>
+            <input type="text" id="conquistaName" placeholder="Nome da Conquista">
+            <button onclick="addConquista()">Adicionar</button>
+        </div>
+    </div>
+
+    <div id="addDiarioModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addDiarioModal')">&times;</span>
+            <h3>Adicionar Nova Entrada no Diário</h3>
+            <input type="text" id="diarioTitle" placeholder="Título">
+            <textarea id="diarioContent" placeholder="Escreva aqui..."></textarea>
+            <input type="file" id="diarioFile" multiple>
+            <button onclick="addDiario()">Adicionar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
